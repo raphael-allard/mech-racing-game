@@ -1,0 +1,16 @@
+#background-track {
+  background: url("../../images/background_track.png") repeat-x;
+  width: 100%;
+  height: 100%;
+  background-size: 100vw 100vh;
+
+  &.moving {
+    animation: scroll-x 2s infinite linear;
+  }
+}
+
+@keyframes scroll-x {
+  to {
+    background-position: -100vw 0%;
+  }
+}
