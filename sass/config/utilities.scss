@@ -1,6 +1,52 @@
 body {
   width: 100vw;
   height: 100vh;
-  // font-family: FhaCondFrench;
-  background-color: #372c31;
+  background-color: black;
+  font-family: FhaCondFrench !important;
+}
+
+button {
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-family: FhaCondFrench !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.p-2 {
+  padding: 8px;
+}
+
+.p-3 {
+  padding: 16px;
+}
+
+.mx-1 {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.mt-3 {
+  margin-top: 16px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.text-center {
+  text-align: center;
 }

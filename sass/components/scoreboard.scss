@@ -1,0 +1,16 @@
+#scoreboard {
+  width: 500px;
+  height: 250px;
+  margin-top: 30px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #ffffffb3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 20;
+
+  .sprite-result {
+    font-size: 25px;
+  }
+}
