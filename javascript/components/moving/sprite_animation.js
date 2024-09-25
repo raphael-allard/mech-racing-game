@@ -13,7 +13,7 @@ const moveSprites = () => {
   return setInterval(() => {
     sprites.forEach(sprite => {
       moveSprite(sprite);
-      if (!threeQuarterFullWidthCrossed) updateThreeQuarterFullWidthCrossed(sprite);
+      updateThreeQuarterFullWidthCrossed(sprite);
       if (isSpriteCrossedFinishLine(sprite)) populateRanking(sprite);
     });
   }, 100);
@@ -54,7 +54,7 @@ const animateSprite = (sprite) => {
 }
 
 const moveSprite = (sprite) => {
-  sprite.style.left = (parseInt(sprite.offsetLeft, 10) + calculatingNextPxMove(sprite)) + "px";
+  sprite.style.left = (parseInt(sprite.offsetLeft, 10) + calculatingNextPxMove()) + "px";
 }
 
 const moveBackSprite = (sprite) => {
@@ -71,30 +71,21 @@ const moveBackSprite = (sprite) => {
 let cumulativeError = 0;
 const threeQuarterFullWidth = window.innerWidth * 0.75;
 
-const calculatingNextPxMove = (sprite) => {
-  // Get the total race time in milliseconds (user-specified time in seconds)
+const calculatingNextPxMove = () => {
+  // Get the total race time in milliseconds
   const raceTimeTotalInMs = parseInt(getById("race-time-total").innerText, 10) * 1000;
 
   // Calculate the number of intervals (100ms intervals)
   const numberOfIntervals = raceTimeTotalInMs / 100;
 
-  // Calculate the total distance the car must travel (the width of the window)
-
   // Calculate the ideal movement per interval (without randomness)
   const baseMovement = threeQuarterFullWidth / numberOfIntervals;
 
-  // Introduce advanced randomness:
-  // - Generate a random factor that can vary more dynamically
-  // - The random factor range can change based on the current interval progress
-  const randomnessMultiplier = Math.random() * 2 - 1; // Gives a range between -1 and 1
-
-  // Vary randomness multiplier more aggressively in different parts of the race
-  const raceProgress = parseFloat(sprite.style.left) / threeQuarterFullWidth;
+  // Gives a range between -1 and 1
+  const randomnessMultiplier = Math.random() * 2 - 1;
 
   // Adjust the randomness intensity based on progress
-  // e.g., more randomness in the middle and less near the start/end
-  const dynamicRandomFactor =
-    randomnessMultiplier * (raceProgress < 0.2 || raceProgress > 0.8 ? baseMovement * 0.2 : baseMovement * 0.5);
+  const dynamicRandomFactor = randomnessMultiplier * (baseMovement * 0.5);
 
   // Adjust the movement considering cumulative error
   const adjustedMovement = baseMovement + dynamicRandomFactor + cumulativeError;

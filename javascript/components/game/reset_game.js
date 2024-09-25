@@ -4,14 +4,13 @@ import { getById } from "../utilities.js";
 import { emptyCurrentRanking } from "./end_game.js";
 
 const resetGame = () => {
-  console.log("start !");
-
   emptyCurrentRanking();
   changeRaceNumber();
   moveBackSprites();
   moveBackFinishLine();
   removeWinnerHalo();
-  hideResultsAndDisplayCountdown();
+  cleanHideResultsAndDisplayCountdown();
+  removeRedColorFromCountdownContainer();
 
   // Remettre la ligne à sa place
   // Vérifier course illimitée ou non
@@ -19,6 +18,11 @@ const resetGame = () => {
 }
 
 // PRIVATE
+
+const removeRedColorFromCountdownContainer = () => {
+  const countdownContainer = getById("countdown-container");
+  countdownContainer.style.color = "black";
+}
 
 const changeRaceNumber = () => {
   const gameNumberElement = getById("game-number");
@@ -35,8 +39,10 @@ const moveBackFinishLine = () => {
   finishLine.style.right = "-5px";
 }
 
-const hideResultsAndDisplayCountdown = () => {
-  getById("scoreboard").classList.add("d-none");
+const cleanHideResultsAndDisplayCountdown = () => {
+  const scoreboard = getById("scoreboard");
+  scoreboard.classList.add("d-none");
+  scoreboard.innerHTML = "";
 
   const countdownInterval = setInterval(() => {
     if (areAllSpritesReady()) {

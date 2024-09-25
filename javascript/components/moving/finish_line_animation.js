@@ -13,11 +13,11 @@ const moveFinishLine = () => {
     // Apply the new right value to the element
     finishLine.style.right = rightValue + "px";
 
-    if (finishLineCrossedLeftWidth) {
+    updateFinishLineCrossedLeftWidth(finishLine);
+
+    if (isFinishLineCrossedLeftWidth()) {
       clearInterval(finishLineInterval);
       resetGame();
-    } else {
-      updateFinishLineCrossedLeftWidth(finishLine);
     }
   }, 10);
 }

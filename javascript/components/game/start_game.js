@@ -14,6 +14,10 @@ const startGame = () => {
   // Clear any existing interval
   clearIntervals();
 
+  // DISABLE BUTTON
+  const startBtn = getById("start-game-btn");
+
+
   movingBackground();
 
   animateSpritesInterval = animateSprites();
