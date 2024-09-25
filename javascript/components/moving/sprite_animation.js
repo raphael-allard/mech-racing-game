@@ -69,7 +69,7 @@ const moveBackSprite = (sprite) => {
 
 // Track how far off we are from the ideal position
 let cumulativeError = 0;
-const threeQuarterFullWidth = window.innerWidth * 0.7;
+const threeQuarterFullWidth = window.innerWidth * 0.65;
 
 const calculatingNextPxMove = () => {
   // Get the total race time in milliseconds
