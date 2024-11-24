@@ -141,10 +141,10 @@ button {
 
 #finish-line {
   position: absolute;
-  bottom: 156px;
+  top: 145px;
   height: 600px;
   right: -5px;
-  border-left: 5px solid rgba(39, 68, 39, 0.3);
+  border-left: 5px solid rgba(255, 255, 255, 0.7);
   border-radius: 1px;
 }
 
@@ -194,6 +194,20 @@ button {
 }
 #options-container #options-menu #submit-option-btn:hover {
   background-color: #50644b;
+}
+#options-container #options-css-menu {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  width: 375px;
+  font-size: 25px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#options-container #options-css-menu input {
+  width: 55px;
+  height: 30px;
+  border-radius: 10px;
 }
 #options-container #game-name {
   font-size: 25px;

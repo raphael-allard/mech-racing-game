@@ -4,6 +4,10 @@ const handleVisibilityOnOptionMenu = () => {
   toggleVisibilityWithClickOutside("options-icon", "options-menu");
 };
 
+const handleVisibilityOnOptionCssMenu = () => {
+  toggleVisibilityWithClickOutside("options-css", "options-css-menu");
+};
+
 const handleVisibilityOnRankingMenu = () => {
   toggleVisibilityWithClickOutside("ranking-history-btn", "ranking-history-list");
 };
@@ -21,4 +25,4 @@ const toggleVisibilityWithClickOutside = (toggleButtonId, elementId) => {
   });
 };
 
-export { handleVisibilityOnOptionMenu, handleVisibilityOnRankingMenu }
+export { handleVisibilityOnOptionMenu, handleVisibilityOnOptionCssMenu, handleVisibilityOnRankingMenu }
